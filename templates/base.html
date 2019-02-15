@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>{{ title }}</title>
+		<!-- Css & Bootstrap -->
+		{% include "snippets/styles.html" %}
+		{% block app_css %}
+			<link rel="stylesheet" type="text/css" href="{% static "css/styles.css" %}">
+		{% endblock app_css %}
+	</head>
+
+	<body>
+		<!-- Navbar Bootstrap -->
+		{% include "snippets/navbar.html" %}
+		<!-- Heading with Jumbotron -->
+		<div class="jumbotron jumbotron-fluid">
+			<div class="container">
+				{% block header %}
+
+				{% endblock header %}
+		  	</div>
+		</div>
+
+		{% comment %} Hanya untuk postingan blog, harus dirubah disetiap html {% endcomment %}
+		<div class="container">
+			{% for post in Posts %}
+				<h3>{{post.title}}</h3>
+				<p>{{post.body}}</p>
+				<p>{{post.time}}</p>
+				<br>
+			{% endfor %}
+		</div>
+
+		<!-- Bootstrap CDN -->
+		{% include "snippets/scripts.html" %}
+
+	</body>
+</html>

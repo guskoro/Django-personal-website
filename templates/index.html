@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block header %}
+	<img id="banner" src="{% static banner %}">
+	<h1 class="display-4">{{heading}}</h1>
+	<p class="lead">{{subheading}}</p>
+{% endblock header %}

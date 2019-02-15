@@ -1,0 +1,27 @@
+#baner {
+	width:100%;
+}
+
+nav ul {
+	background-color: transparent;
+	list-style-type: none;
+	margin: 0;
+	overflow: hidden;
+	padding: 0;
+}
+
+nav li {
+	float: left;
+}
+
+nav a {
+	color: #fff;
+	display: block;
+	font-family: arial;
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+nav a:hover {
+	background-color: #fff;
+}
