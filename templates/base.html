@@ -24,13 +24,18 @@
 		</div>
 
 		{% comment %} Hanya untuk postingan blog, harus dirubah disetiap html {% endcomment %}
-		<div class="container">
-			{% for post in Posts %}
-				<h3>{{post.title}}</h3>
-				<p>{{post.body}}</p>
-				<p>{{post.time}}</p>
-				<br>
-			{% endfor %}
+		<div class="container bg-light shadow mt-5">
+			{% block posting %}
+
+			{% endblock posting %}
+
+			{% block form %}
+
+			{% endblock form %}
+
+			{% block homeform %}
+			
+			{% endblock homeform %}
 		</div>
 
 		<!-- Bootstrap CDN -->

@@ -7,10 +7,11 @@ from .models import Post
 def index(request):
 	# do Queryset
     posts = Post.objects.all();
-
+    categories = Post.objects.values('category').distinct();
     context = {
 		'app_css':'blog/css/styles.css',
 		'banner':'blog/img/banner2.png',
+		'Categories':categories,
 		'contrib':'Macht mit Liebe',
 		'heading':'Halo Liebe Leute !',
 		'Posts':posts,
@@ -29,14 +30,46 @@ def index(request):
 
 def categoryPost(request, categoryInput):
 	posts = Post.objects.filter(category=categoryInput)
+	categories = Post.objects.values('category').distinct();
+	context = {
+		'app_css':'blog/css/styles.css',
+		'banner':'blog/img/banner2.png',
+		'Categories':categories,
+		'contrib':'Macht mit Liebe',
+		'heading':'Halo Liebe Leute !',
+		'Posts':posts,
+ 	   	'subheading':'Wilkommen in Meine Website, Wir machen diese website mit Django',
+		'title':'Gus | Blog',
+		'nav' : [
+			['/','Haus'],
+	   		['/blog','Blog'],
+	   		['/about','Über'],
+	   		['/cv','Lebenslauf'],
+	   		['/contact', 'Kontakt'],
+	   		['/story', 'Geschichte']
+		]
+	}
+	return render(request, 'blog/category.html', context)
 
-	return HttpResponse("category Post");
-
-def singlePost(request, slugInput):
+def detailPost(request, slugInput):
 	posts = Post.objects.get(slug=slugInput)
-
-	title = "<h1>{}</h1>".format(posts.title)
-	body = "<p>{}<p>".format(posts.body)
-	category = "<p>{}<p>".format(posts.category)
-
-	return HttpResponse(title + body + category);
+	categories = Post.objects.values('category').distinct();
+	context = {
+		'app_css':'blog/css/styles.css',
+		'banner':'blog/img/banner2.png',
+		'Categories':categories,
+		'contrib':'Macht mit Liebe',
+		'heading':'Halo Liebe Leute !',
+		'Posts':posts,
+ 	   	'subheading':'Wilkommen in Meine Website, Wir machen diese website mit Django',
+		'title':'Gus | Blog',
+		'nav' : [
+			['/','Haus'],
+	   		['/blog','Blog'],
+	   		['/about','Über'],
+	   		['/cv','Lebenslauf'],
+	   		['/contact', 'Kontakt'],
+	   		['/story', 'Geschichte']
+		]
+	}
+	return render(request, 'blog/detail.html', context)

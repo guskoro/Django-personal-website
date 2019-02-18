@@ -9,7 +9,8 @@ class Post(models.Model):
     slug = models.SlugField(blank=True, editable=False)
     email = models.EmailField(default='nama@gus.com')
     address = models.CharField(max_length=225,blank=True)
-    time = models.DateTimeField(auto_now_add=True)
+    publish = models.DateTimeField(auto_now_add=True)
+    update = models.DateTimeField(auto_now=True)
 
     def save(self):
         self.slug = slugify(self.title)

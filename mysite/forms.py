@@ -1,0 +1,36 @@
+from django import forms
+
+class FormField(forms.Form):
+    #python data type
+    integer_field   = forms.IntegerField(required=False)
+    decimal_field   = forms.DecimalField(required=False)
+    float_field     = forms.FloatField(required=False)
+    boolean_field   = forms.BooleanField(required=False)
+    char_field      = forms.CharField(required=False)
+    #string input
+    email_field     = forms.EmailField(required=False)
+    regex_field     = forms.RegexField(regex=r'(P?<test>)')
+    slug_field      = forms.SlugField()
+    url_field       = forms.URLField()
+    ip_field        = forms.GenericIPAddressField()
+    #select input
+    PILIHAN = (
+        ('nilai1','Ein'),
+        ('nilai2','Zwei'),
+        ('nilai3','Drei'),
+        ('nilai4','Vier'),
+        ('nilai5','Funf'),
+    )
+    choice_field        = forms.ChoiceField(choices=PILIHAN)
+    multi_choice_field  = forms.MultipleChoiceField(choices=PILIHAN)
+    multi_type_chice    = forms.TypedMultipleChoiceField(choices=PILIHAN)
+    null_boolean_field  = forms.NullBooleanField()
+    #date time
+    date_field          = forms.DateField()
+    datetime_field      = forms.DateTimeField()
+    duration_field      = forms.DurationField()
+    time_field          = forms.TimeField()
+    splitdatetime_field = forms.SplitDateTimeField()
+    #file input
+    file_field          = forms.FileField()
+    image_field         = forms.ImageField()

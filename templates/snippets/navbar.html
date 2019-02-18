@@ -9,8 +9,11 @@
 	<div class="collapse navbar-collapse" id="navbarSupportedContent">
 		<ul class="navbar-nav mr-auto">
 			{% for link,name in nav %}
-			<li><a href="{{link}}" title="">{{name}}</a></li>
+			<li class="nav-item"><a href="{{link}}" title="">{{name}}</a></li>
 			{% endfor %}
+			<li class="nav-item">
+				<a class="nav-link" href="/admin">Admin</a>
+			</li>
 		</ul>
 
 		<form class="form-inline my-2 my-lg-0">

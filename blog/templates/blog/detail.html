@@ -17,21 +17,17 @@
         <li class="nav-item">
             <a class="nav-link" href="/blog" title="">All-Post</a>
         </li>
-		{% for dataCategory in Categories %}
-			<li class="nav-item">
-				<a class="nav-link" href="/blog/category/{{dataCategory.category}}"
-				title="">{{dataCategory.category}}</a>
-			</li>
-		{% endfor %}
+        {% for dataCategory in Categories %}
+            <li class="nav-item">
+                <a class="nav-link" href="/blog/category/{{dataCategory.category}}"
+                title="">{{dataCategory.category}}</a>
+            </li>
+        {% endfor %}
     </ul>
 
-	{% for post in Posts %}
-		<a href="/blog/post/{{post.slug}}">
-		<h3>{{post.title}}</h3>
-		</a>
-		<p>{{post.category}}</p>
-		<p>{{post.body|truncatechars:100}}</p>
-		<p>{{post.publish}}</p>
-		<br>
-	{% endfor %}
+	<h3>{{Posts.title}}</h3>
+	<p>{{Posts.category}}</p>
+	<p>{{Posts.body}}</p>
+	<p>{{Posts.publish}}</p>
+	<br>
 {% endblock posting %}

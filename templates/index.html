@@ -7,3 +7,14 @@
 	<h1 class="display-4">{{heading}}</h1>
 	<p class="lead">{{subheading}}</p>
 {% endblock header %}
+
+{% block homeform %}
+	<form method="POST">
+		{% csrf_token %}
+		<table>
+			{{data_form.as_table}}
+		</table>
+		<br>
+		<button type="Submit">Senden</button>
+	</form>
+{% endblock homeform %}
